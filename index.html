@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Big Shade</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $.getJSON("http://cooper-union-flickr-proxy.herokuapp.com/search?text=bug%20fossil&count=5", function(response){
+        console.log(response);
+
+        $("#fossilPic").append("<img src=" + response.photos.photo[1].sizes.large + "/>");
+//        $("#pc").append("<img src=" + response.photos.photo[2].sizes.large + "/>");
+
+      });
+    </script>
+
+      <style>
+
+      #intro {
+        margin-top: 50px;
+        font-family: georgia;
+        font-size: 2em;
+        text-align: center;
+        width: 760px;
+        color: black;
+      }
+
+      #outtro {
+        font-family: georgia;
+        font-size: .9em;
+        text-align:left;
+        width: 375px;
+        color: black;
+        margin-top: 50px;
+        text-indent: 35px;
+      }
+
+      #content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #fossilPic {
+        margin-top: 50px;
+      }
+
+      /*phone format*/
+@media all and (min-width:300px) and (max-width:460px) {
+
+ body {
+		background-color:grey;
+}
+
+ #intro {
+  font-size: 1.3em;
+  width:300px;
+}
+
+ #outtro {
+  font-size: 2em;
+  width:300px;
+}
+
+#fossilPic img {
+  width: 250px;
+}
+
+}
+      </style>
+
+  </head>
+  <body>
+  <section id="content">
+    <div id="intro">
+      <p>Come and rest where we were lost by God:</p>
+    </div>
+    <!-- <div id="pc"></div>  //-->
+    <div id="fossilPic"></div>
+    <div id="outtro">
+      <p>Listening with a quaking head.</p>
+    </div>
+  </section>
+
+
+
+
+  </body>
+</html>
